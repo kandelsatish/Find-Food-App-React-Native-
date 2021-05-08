@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, StyleSheet, Text, ScrollView } from 'react-native'
+import { View, StyleSheet, Text, ScrollView, ActivityIndicator } from 'react-native'
 import SearchBar from '../components/SearchBar'
 import useResults from '../hooks/useResults'
 import ResultsList from '../components/ResultsList'
@@ -12,6 +12,10 @@ export default function SearchScreen({navigation}) {
         return results.filter(item => {
             return price === item.price;
         })
+    }
+
+    if(!results.length){
+        return <ActivityIndicator size='large'/>
     }
 
     return (

@@ -11,8 +11,10 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Business Screen" component={SearchScreen}/>
-        <Stack.Screen name="Result Show Screen" component={ResultShowScreen}/>
+        <Stack.Screen name="Business Screen" 
+        component={SearchScreen}  options={{ title: 'Lets Find Food'}}/>
+        <Stack.Screen name="Result Show Screen" 
+        component={ResultShowScreen}/>
       </Stack.Navigator>
     </NavigationContainer>
   

@@ -1,11 +1,10 @@
 import React from 'react'
-import { View, Text, StyleSheet, FlatList,TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, FlatList,TouchableOpacity,ActivityIndicator } from 'react-native'
 import ResultDetails from './ResultDetails'
 export default function ResultsList({ title, results,navigation }) {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>{title}</Text>
-            {/* <Text>{results.length}</Text> */}
             <FlatList
                 horizontal
                 showsHorizontalScrollIndicator={false}
@@ -13,8 +12,8 @@ export default function ResultsList({ title, results,navigation }) {
                 keyExtractor={(result) => result.id}
                 renderItem={({ item }) => {
                    return(
-                       <TouchableOpacity onPress={()=>navigation.navigate('Result Show Screen')}>
-                           <ResultDetails item={item} navigation={navigation}/>
+                       <TouchableOpacity onPress={()=>navigation.navigate('Result Show Screen',{id:item.id})}>
+                           <ResultDetails item={item}/>
                        </TouchableOpacity>
                    ) 
                 }}
